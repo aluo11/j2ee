@@ -2,8 +2,6 @@ package com.j2ee.entity;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 public class Flight {
     //航班id

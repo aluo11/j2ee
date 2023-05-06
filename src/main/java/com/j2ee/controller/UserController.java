@@ -19,8 +19,22 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("register")
+    public R<User> register(User user){
+        boolean save = userService.save(user);
+        if(save){
+            return R.success(user);
+        }else{
+            return R.error("注册失败");
+        }
+    }
+
     /**
      * 用户登录
+     * @param username
+     * @param password
+     * @param session
+     * @return
      */
     @PostMapping("/login")
     public R<User> login(String username, String password, HttpSession session){
